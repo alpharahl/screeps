@@ -1,0 +1,35 @@
+var roleRepairer = {
+  /** @param {Creep} creep **/
+  run: function(creep) {
+    var targets = creep.room.find(FIND_MY_STRUCTURES, {
+      filter: {
+        structureType: STRUCTURE_CONTAINER,
+        ticksToDecay < 200
+      }
+    });
+
+    if (creep.memory.repairing && creep.carry.energy == 0){
+      creep.memory.repairing = false;
+      creep.say('harvest');
+    }
+    if (!creep.memory.repairing && creep.carry.energy == creep.carryCapacity){
+      creep.memory.repairing = true;
+      creep.say('repairing');
+    }
+
+    if (creep.memory.repairing) {
+      var target = targets[0];
+      if (creep.repair(target) == ERR_NOT_IN_RANGE){
+        creep.moveTo(target);
+      }
+    } else {
+      // get more energy
+      var source = creep.room.find(FIND_SOURCES)[0];
+      if (creep.harvest(source) == ERR_NOT_IN_RANGE){
+        creep.moveTo(source);
+      }
+    }
+	}
+};
+
+module.exports = roleRepairer;
