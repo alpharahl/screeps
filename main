@@ -7,7 +7,7 @@ var roleBuilder2 = require('role.builder2');
 
 module.exports.loop = function (){
 
-    if (Game.spawns['SpawnAlpha'].spawning){
+    if (Game.spawns['Alpha'].spawning){
 
     }else{
         maintainCreeps.run('builder', 4);
@@ -31,8 +31,8 @@ module.exports.loop = function (){
     }
 
     //Build roads (maintains them as well... albeit awefully)
-    roadBuilder.run(Game.spawns['SpawnAlpha'],Game.rooms['W72N4'].find(FIND_SOURCES)[0]);
-    roadBuilder.run(Game.spawns['SpawnAlpha'], Game.rooms['W72N4'].find(FIND_SOURCES)[1]);
+    roadBuilder.run(Game.spawns['Alpha'],Game.rooms['W72N4'].find(FIND_SOURCES)[0]);
+    roadBuilder.run(Game.spawns['Alpha'], Game.rooms['W72N4'].find(FIND_SOURCES)[1]);
     roadBuilder.run(Game.rooms['W72N4'].find(FIND_SOURCES)[1], Game.rooms['W72N4'].controller);
 
 }
