@@ -1,28 +1,19 @@
 var roleMiner = {
-    //** @param [Creep] creep **/
-    run: function(creep) {
-        if (creep.carry.energy < creep.carryCapacity) {
-            var sources = creep.room.find(FIND_SOURCES);
-            if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffffff'}});
-            }
-        } else if(Game.spawns['Alpha'].energy < Game.spawns['Alpha'].energyCapacity){
-            if (creep.transfer(Game.spawns['Alpha'], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                creep.moveTo(Game.spawns['Alpha'], {visualizePathStyle: {stroke: '#ffffff'}});
-            }
-        } else {
-            var extensions = creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION) && structure.energy < structure.energyCapacity
-                }
-            });
-            if (extensions.length > 0){
-                if(creep.transfer(extensions[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                    creep.moveTo(extensions[0], {visualizePathStyle: {stroke: '#ffffff'}});
-                }
-            }
-        }
+  //** @param [Creep] creep **/
+  run: function(creep) {
+    if (creep.carry.energy < creep.carryCapacity){
+      // mine from source 1 atm
+      var source = creep.room.find(FIND_SOURCES)[0]
+      if (creep.harvest(source) == ERR_NOT_IN_RANGE){
+        creep.moveTo(source);
+      }
+    } else {
+      var storage = Game.spawns['Spawn1'];
+      if (creep.transfer(storage) == ERR_NOT_IN_RANGE){
+        creep.moveTo(storage);
+      }
     }
+  }
 }
 
 module.exports = roleMiner;
