@@ -4,9 +4,10 @@ var roleRepairer = {
     var targets = creep.room.find(FIND_MY_STRUCTURES, {
       filter: {
         structureType: STRUCTURE_CONTAINER,
-        ticksToDecay < 200
       }
     });
+
+
 
     if (creep.memory.repairing && creep.carry.energy == 0){
       creep.memory.repairing = false;
@@ -18,7 +19,13 @@ var roleRepairer = {
     }
 
     if (creep.memory.repairing) {
-      var target = targets[0];
+      var target;
+      for (var t in targets){
+        if (t.ticksToDecay < 200){
+          target = t;
+          break;
+        }
+      }
       if (creep.repair(target) == ERR_NOT_IN_RANGE){
         creep.moveTo(target);
       }
