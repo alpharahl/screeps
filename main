@@ -4,6 +4,7 @@ var roleBuilder = require('role.builder');
 var maintainCreeps = require("maintain.creeps");
 //var roadBuilder = require('road.builder');
 var roleRepairer = require('role.repairer');
+var roleStationaryMiner = require('role.stationaryMiner');
 
 var roleMiner = require('role.miner');
 
@@ -12,6 +13,7 @@ module.exports.loop = function (){
   maintainCreeps.run('repairer', 1);
   maintainCreeps.run('builder', 2);
   maintainCreeps.run('upgrader', 2);
+  maintainCreeps.run('stationaryMiner', 1);
   maintainCreeps.run('miner', 2);
 
   for (var name in Game.creeps){
@@ -24,6 +26,8 @@ module.exports.loop = function (){
       roleBuilder.run(creep);
     } else if (creep.memory.role == 'repairer'){
       roleRepairer.run(creep);
+    } else if (creep.memory.role == 'stationaryMiner'){
+      roleStationaryMiner.run(creep);
     }
   }
 }
