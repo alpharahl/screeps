@@ -9,7 +9,7 @@ var roleMiner = {
       }
     } else {
       var storage = Game.spawns['Spawn1'];
-      if (creep.transfer(storage) == ERR_NOT_IN_RANGE){
+      if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
         creep.moveTo(storage);
       }
     }
