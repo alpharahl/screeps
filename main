@@ -10,8 +10,8 @@ module.exports.loop = function (){
     if (Game.spawns['SpawnAlpha'].spawning){
 
     }else{
-        maintainCreeps.run('upgrader', 3);
         maintainCreeps.run('builder', 4);
+        maintainCreeps.run('upgrader', 3);
         maintainCreeps.run('harvester', 3);
     }
 
@@ -29,7 +29,7 @@ module.exports.loop = function (){
             roleBuilder2.run(creep);
         }
     }
-    
+
     //Build roads (maintains them as well... albeit awefully)
     roadBuilder.run(Game.spawns['SpawnAlpha'],Game.rooms['W72N4'].find(FIND_SOURCES)[0]);
     roadBuilder.run(Game.spawns['SpawnAlpha'], Game.rooms['W72N4'].find(FIND_SOURCES)[1]);
