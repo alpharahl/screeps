@@ -8,7 +8,7 @@ var roleMiner = {
         creep.moveTo(source);
       }
     } else {
-      var storage = creep.room.findClosestByPath(STRUCTURE_CONTAINER);
+      var storage = creep.pos.findClosestByPath(STRUCTURE_CONTAINER);
       if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
         creep.moveTo(storage);
       }
