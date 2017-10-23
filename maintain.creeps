@@ -7,9 +7,9 @@ var maintainCreeps = {
             if (creepType == 'upgrader'){
                 memHash['upgrading'] = false;
             }
-            if (Game.rooms['W72N4'].energyAvailable >= 550){
+            if (Game.rooms['W72N4'].energyAvailable >= 200){
                 console.log('Spawning new ' + creepType + ': ' + newName);
-                Game.spawns['Alpha'].spawnCreep([WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: memHash});
+                Game.spawns['Alpha'].spawnCreep([WORK, CARRY, MOVE], newName, {memory: memHash});
             }
         }
     }

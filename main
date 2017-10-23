@@ -6,6 +6,8 @@ var roadBuilder = require('road.builder');
 var roleBuilder2 = require('role.builder2');
 
 module.exports.loop = function (){
+
+  maintainCreeps('miner', 2);
   for (var name in Game.creeps){
     var creep =Game.creeps[name];
     if (creep.memory.role == 'miner'){
