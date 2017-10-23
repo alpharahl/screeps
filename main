@@ -2,7 +2,7 @@
 var roleUpgrader = require('role.upgrader');
 //var roleBuilder = require('role.builder');
 var maintainCreeps = require("maintain.creeps");
-//var roadBuilder = require('road.builder');
+var roadBuilder = require('road.builder');
 //var roleBuilder2 = require('role.builder2');
 
 var roleMiner = require('role.miner');
@@ -19,6 +19,8 @@ module.exports.loop = function (){
       roleMiner.run(creep);
     } else if(creep.memory.role == 'upgrader'){
       roleUpgrader.run(creep);
+    } else if (creep.memory.role == 'builder'){
+      roleBuilder.run(creep);
     }
   }
 }
