@@ -1,5 +1,5 @@
 //var roleHarvester = require("role.harvester");
-//var roleUpgrader = require('role.upgrader');
+var roleUpgrader = require('role.upgrader');
 //var roleBuilder = require('role.builder');
 var maintainCreeps = require("maintain.creeps");
 //var roadBuilder = require('road.builder');
@@ -9,11 +9,15 @@ var roleMiner = require('role.miner');
 
 module.exports.loop = function (){
 
+  maintainCreeps.run('upgrader', 2);
   maintainCreeps.run('miner', 2);
+
   for (var name in Game.creeps){
     var creep =Game.creeps[name];
     if (creep.memory.role == 'miner'){
-        roleMiner.run(creep);
+      roleMiner.run(creep);
+    } else if(creep.memory.role == 'upgrader'){
+      roleUpgrader.run(creep);
     }
   }
 }
