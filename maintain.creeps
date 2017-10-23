@@ -1,0 +1,18 @@
+var maintainCreeps = {
+    run: function(creepType, count){
+        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == creepType);
+        if (creeps.length < count){
+            var newName = creepType + Game.time;
+            var memHash = {role: creepType}
+            if (creepType == 'upgrader'){
+                memHash['upgrading'] = false;
+            }
+            if (Game.rooms['W72n4'] >= 550){
+                console.log('Spawning new ' + creepType + ': ' + newName);
+                Game.spawns['SpawnAlpha'].spawnCreep([WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: memHash});
+            }
+        }
+    }
+}
+
+module.exports = maintainCreeps;

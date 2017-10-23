@@ -1,0 +1,38 @@
+var roleHarvester = require("role.harvester");
+var roleUpgrader = require('role.upgrader');
+var roleBuilder = require('role.builder');
+var maintainCreeps = require("maintain.creeps");
+var roadBuilder = require('road.builder');
+var roleBuilder2 = require('role.builder2');
+
+module.exports.loop = function (){
+
+    if (Game.spawns['SpawnAlpha'].spawning){
+
+    }else{
+        maintainCreeps.run('upgrader', 3);
+        maintainCreeps.run('builder', 4);
+        maintainCreeps.run('harvester', 3);
+    }
+
+
+
+    for (var name in Game.creeps){
+        var creep =Game.creeps[name];
+        if (creep.memory.role == 'harvester'){
+            roleHarvester.run(creep);
+        } else if (creep.memory.role == 'upgrader'){
+            roleUpgrader.run(creep);
+        } else if (creep.memory.role == 'builder'){
+            roleBuilder.run(creep);
+        } else if (creep.memory.role == 'builder2'){
+            roleBuilder2.run(creep);
+        }
+    }
+    
+    //Build roads (maintains them as well... albeit awefully)
+    roadBuilder.run(Game.spawns['SpawnAlpha'],Game.rooms['W72N4'].find(FIND_SOURCES)[0]);
+    roadBuilder.run(Game.spawns['SpawnAlpha'], Game.rooms['W72N4'].find(FIND_SOURCES)[1]);
+    roadBuilder.run(Game.rooms['W72N4'].find(FIND_SOURCES)[1], Game.rooms['W72N4'].controller);
+
+}

@@ -1,0 +1,10 @@
+var clearConstruction = {
+    run: function(){
+        var sites = Game.constructionSites;
+        for (var site in sites){
+            sites[site].remove();
+        }
+    }
+}
+
+module.exports = clearConstruction;
