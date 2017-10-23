@@ -7,6 +7,7 @@ var maintainCreeps = {
             if (creepType == 'upgrader'){
                 memHash['upgrading'] = false;
             }
+            console.log(Game.rooms['W72N4'])
             if (Game.rooms['W72n4'] >= 550){
                 console.log('Spawning new ' + creepType + ': ' + newName);
                 Game.spawns['SpawnAlpha'].spawnCreep([WORK, WORK, WORK, WORK, CARRY, MOVE, MOVE], newName, {memory: memHash});
