@@ -8,11 +8,7 @@ var roleMiner = {
         creep.moveTo(source);
       }
     } else {
-      var storage = creep.room.find(FIND_MY_STRUCTURES, {
-        filter: {
-          structureType: STRUCTURE_CONTAINER
-        }
-      })[0];
+      var storage = creep.room.find(FIND_MY_STRUCTURES)[0];
       if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
         creep.moveTo(storage);
       }
