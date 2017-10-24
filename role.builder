@@ -23,14 +23,15 @@ var roleBuilder = {
             }
 	    }
 	    else {
-          var source = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+        var sources = creep.room.find(FIND_SOURCES);
+        var source = sources[1].pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
-              return structure.structureType == STRUCTURE_CONTAINER
+                return structure.structureType == STRUCTURE_CONTAINER
             }
-          })
-          if(creep.withdraw(source, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-              creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
-          }
+        })
+        if(creep.withdraw(source, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
+        }
 	    }
 	}
 };
