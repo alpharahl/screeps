@@ -2,7 +2,7 @@ var roleHauler = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-
+      config.log(creep.memory.hauling + ':' + creep.carry.energy)
 	    if(creep.memory.hauling && creep.carry.energy == 0) {
             creep.memory.hauling = false;
             creep.say('pickup');
