@@ -8,7 +8,7 @@ var maintainCreeps = {
                 memHash['upgrading'] = false;
             }
             if (creepType == 'hauler'){
-              Game.spawns['Spawn1'].spawnCreep([CARRY, CARRY, MOVE, MOVE, MOVE, CARRY], newName);
+              Game.spawns['Spawn1'].spawnCreep([CARRY, CARRY, MOVE, MOVE, MOVE, CARRY], newName, {memory: memHash});
             } else {
               if (Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: memHash}) == ERR_NOT_ENOUGH_ENERGY){
                 //Waiting
