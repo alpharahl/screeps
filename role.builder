@@ -19,7 +19,7 @@ var roleBuilder = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             } else { // nothing to build
-                creep.moveTo(Game.spawns['Alpha'])
+                creep.moveTo(Game.spawns['Spawn1'])
             }
 	    }
 	    else {
