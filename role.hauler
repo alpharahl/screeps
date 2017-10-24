@@ -2,7 +2,6 @@ var roleHauler = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-      config.log(creep.memory.hauling + ':' + creep.carry.energy)
 	    if(creep.memory.hauling && creep.carry.energy == 0) {
             creep.memory.hauling = false;
             creep.say('pickup');
@@ -14,6 +13,17 @@ var roleHauler = {
 
 	    if(creep.memory.hauling) {
         var storage = Game.spawns['Spawn1'];
+        if (storage.energy < storage.energyCapacity){
+          // we'll use this
+        } else {
+          // go to extensions
+          storage = creep.room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+              return (structure.structureType == STRUCTURE_EXTENSION ||
+                      structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity
+            }
+          });
+        }
         if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
           creep.moveTo(storage);
         }
