@@ -5,6 +5,7 @@ var maintainCreeps = require("maintain.creeps");
 //var roadBuilder = require('road.builder');
 var roleRepairer = require('role.repairer');
 var roleStationaryMiner = require('role.stationaryMiner');
+var roleHauler = require('role.hauler');
 
 var roleMiner = require('role.miner');
 
@@ -28,6 +29,8 @@ module.exports.loop = function (){
       roleRepairer.run(creep);
     } else if (creep.memory.role == 'stationaryMiner'){
       roleStationaryMiner.run(creep);
+    } else if (creep.memory.role == 'hauler'){
+      roleHauler.run(creep);
     }
   }
 }
