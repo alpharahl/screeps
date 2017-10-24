@@ -30,7 +30,7 @@ var roleHauler = {
 	    }
 	    else {
         var sources = creep.room.find(FIND_SOURCES);
-        var source = sources[0].pos.findClosestByPath(FIND_STRUCTURES, {
+        var source = sources[1].pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
                 return structure.structureType == STRUCTURE_CONTAINER
             }
