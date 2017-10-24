@@ -25,8 +25,7 @@ var roleBuilder = {
 	    else {
           var source = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
-              return structure.structureType == STRUCTURE_CONTAINER &&
-                     structure.energy > 50
+              return structure.structureType == STRUCTURE_CONTAINER
             }
           })
           if(creep.withdraw(source, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
