@@ -13,7 +13,7 @@ module.exports.loop = function (){
 
   maintainCreeps.run('builder', 3);
   maintainCreeps.run('upgrader', 2);
-  maintainCreeps.run('stationaryMiner', 1);
+  maintainCreeps.run('stationaryMiner', 2);
   maintainCreeps.run('miner', 1);
   maintainCreeps.run('hauler', 1);
 
