@@ -10,17 +10,31 @@ var roleMiner = {
       creep.repair(storage);
       creep.memory.repairNext = false;
     }
-    if (creep.carry.energy < creep.carryCapacity){
-      // mine from source 1 atm
-      var source = creep.room.find(FIND_SOURCES)[1]
-      if (creep.harvest(source) == ERR_NOT_IN_RANGE){
-        creep.moveTo(source);
+    if (creep.memory.source == null){
+      var sources = creep.room.find(FIND_SOURCES);
+      var container;
+      for (var s in sources){
+        //Find the nearby container
+        var cont = s.pos.findClosestByPath(FIND_STRUCTURES, {
+          filter: (structure) => {
+            return structure.structureType == STRUCTURE_CONTAINER
+          }
+        });
+        var position = cont.pos
+        // Need to find what's here
+        if (position.lookFor(LOOK_CREEPS) == ''){
+          container = position;
+        }
       }
+      creep.memory.container = container;
+      creep.memory.sourcePos = container.pos.findClosestByPath(FIND_SOURCES);
+    }
+
+    // Move to and mine empty spot
+    if (creep.pos == creep.memory.source.pos){
+      creep.harvest(source);
     } else {
-      creep.memory.repairNext = true;
-      if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-        creep.moveTo(storage);
-      }
+      creep.moveTo(creep.memory.source.pos);
     }
   }
 }
