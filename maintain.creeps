@@ -19,6 +19,8 @@ var maintainCreeps = {
             } else if (creepType == 'upgrader') {
               memHash['upgrading'] = false;
               Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], newName, {memory: memHash});
+            } else if (creepType == 'roadMaintainer'){
+              Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], newName, {memory: memHash});
             } else {
               if (Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: memHash}) == ERR_NOT_ENOUGH_ENERGY){
                 //Waiting
