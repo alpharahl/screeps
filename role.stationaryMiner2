@@ -30,7 +30,7 @@ var roleMiner = {
     }
 
     // Move to and mine empty spot
-    if (creep.pos == creep.memory.container){
+    if (creep.pos.x == creep.memory.container.x && creep.pos.y == creep.memory.container.y){
       creep.harvest(creep.pos.findClosestByRange(FIND_SOURCES));
     } else {
       // need to make sure it didn't get filled already
