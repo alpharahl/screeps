@@ -21,8 +21,8 @@ var roleBuilder = {
           }
         });
         if (targets.length) {
-          if (creep.repair(target[0]) == ERR_NOT_IN_RANGE){
-            creep.moveTo(target[0])
+          if (creep.repair(targets[0]) == ERR_NOT_IN_RANGE){
+            creep.moveTo(targets[0])
           }
         } else {
 	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
