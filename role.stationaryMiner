@@ -13,7 +13,7 @@ var roleMiner = {
     if (creep.memory.source == null){
       var sources = creep.room.find(FIND_SOURCES);
       var container;
-      for (var s in sources){
+      for (let s of sources){
         //Find the nearby container
         var cont = s.pos.findClosestByRange(FIND_STRUCTURES, {
           filter: (structure) => {
