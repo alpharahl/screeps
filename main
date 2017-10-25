@@ -30,8 +30,8 @@ module.exports.loop = function (){
     } else if (creep.memory.role == 'repairer'){
       roleRepairer.run(creep);
     } else if (creep.memory.role == 'stationaryMiner'){
-      // roleStationaryMiner.run(creep);
-      creep.moveTo(16,37);
+      roleStationaryMiner.run(creep);
+      // creep.moveTo(16,37);
     } else if (creep.memory.role == 'hauler'){
       roleHauler.run(creep);
     } else if (creep.memory.role == 'stationaryMiner2'){
