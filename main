@@ -14,7 +14,7 @@ var roleMiner = require('role.miner');
 module.exports.loop = function (){
 
   maintainCreeps.run('builder', 2);
-  maintainCreeps.run('upgrader', 3);
+  maintainCreeps.run('upgrader', 5);
   // maintainCreeps.run('stationaryMiner', 1);
   maintainCreeps.run('hauler', 1);
   maintainCreeps.run('miner', 1);
