@@ -26,16 +26,14 @@ var roleMiner = {
           creep.memory.container = position;
         }
       }
-      creep.memory.source = creep.memory.container.findClosestByRange(FIND_SOURCES);
     }
 
     // Move to and mine empty spot
     if (creep.pos == creep.memory.container){
-      creep.harvest(source);
+      creep.harvest(creep.memory.container.findClosestByRange(FIND_SOURCES););
     } else {
       // need to make sure it didn't get filled already
-      
-      creep.moveTo(creep.memory.container);
+      creep.moveTo(creep.memory.container.x, creep.memory.container.y);
     }
   }
 }

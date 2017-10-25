@@ -17,6 +17,7 @@ module.exports.loop = function (){
   maintainCreeps.run('stationaryMiner', 1);
   maintainCreeps.run('hauler', 1);
   maintainCreeps.run('miner', 1);
+  maintainCreeps.run('stationaryMiner2',1);
 
   for (var name in Game.creeps){
     var creep =Game.creeps[name];
@@ -29,7 +30,8 @@ module.exports.loop = function (){
     } else if (creep.memory.role == 'repairer'){
       roleRepairer.run(creep);
     } else if (creep.memory.role == 'stationaryMiner'){
-      roleStationaryMiner.run(creep);
+      // roleStationaryMiner.run(creep);
+      creep.moveTo(16,37);
     } else if (creep.memory.role == 'hauler'){
       roleHauler.run(creep);
     } else if (creep.memory.role == 'stationaryMiner2'){
