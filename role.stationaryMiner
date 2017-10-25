@@ -1,7 +1,11 @@
 var roleMiner = {
   //** @param [Creep] creep **/
   run: function(creep) {
-    var storage = creep.pos.findClosestByPath(FIND_STRUCTURES);
+    var storage = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+      filter: (structure) => {
+        return structure.structureType == STRUCTURE_CONTAINER
+      }
+    });
     if (creep.memory.repairNext == true){
       creep.repair(storage);
       creep.memory.repairNext = false;
