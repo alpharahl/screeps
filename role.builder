@@ -15,7 +15,7 @@ var roleBuilder = {
 	    if(creep.memory.building) {
         //check for repairs needed for containers first
         var targets = creep.room.find(FIND_STRUCTURES, {
-          filter: (structre) => {
+          filter: (structure) => {
             return (structure.structureType == STRUCTURE_CONTAINER &&
                     structure.ticksToDecay < 200)
           }
