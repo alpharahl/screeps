@@ -1,16 +1,17 @@
 var roleMiner = {
   //** @param [Creep] creep **/
   run: function(creep) {
-    var storage = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-        filter: (structure) => {
-            return structure.structureType == STRUCTURE_CONTAINER
-        }
-    })
+
     if (creep.memory.repairNext == true){
+      var storage = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+          filter: (structure) => {
+              return structure.structureType == STRUCTURE_CONTAINER
+          }
+      });
       creep.repair(storage);
       creep.memory.repairNext = false;
     }
-    if (creep.memory.source == null){
+    if (creep.memory.container == null){
       var sources = creep.room.find(FIND_SOURCES);
       var container;
       for (let s of sources){
@@ -30,7 +31,7 @@ var roleMiner = {
 
     // Move to and mine empty spot
     if (creep.pos == creep.memory.container){
-      creep.harvest(creep.memory.container.findClosestByRange(FIND_SOURCES));
+      creep.harvest(creep.pos.findClosestByRange(FIND_SOURCES));
     } else {
       // need to make sure it didn't get filled already
       creep.moveTo(creep.memory.container.x, creep.memory.container.y);
