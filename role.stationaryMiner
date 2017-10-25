@@ -15,7 +15,7 @@ var roleMiner = {
       var container;
       for (var s in sources){
         //Find the nearby container
-        var cont = s.pos.findClosestByPath(FIND_STRUCTURES, {
+        var cont = s.pos.findClosestByRange(FIND_STRUCTURES, {
           filter: (structure) => {
             return structure.structureType == STRUCTURE_CONTAINER
           }
