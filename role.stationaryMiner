@@ -23,18 +23,17 @@ var roleMiner = {
         var position = cont.pos
         // Need to find what's here
         if (position.lookFor(LOOK_CREEPS) == ''){
-          container = position;
+          creep.memory.container = position;
         }
       }
-      creep.memory.container = container;
-      creep.memory.sourcePos = container.pos.findClosestByRange(FIND_SOURCES);
+      creep.memory.source = creep.memory.container.findClosestByRange(FIND_SOURCES);
     }
 
     // Move to and mine empty spot
-    if (creep.pos == creep.memory.source.pos){
+    if (creep.pos == creep.memory.container){
       creep.harvest(source);
     } else {
-      creep.moveTo(creep.memory.source.pos);
+      creep.moveTo(creep.memory.container);
     }
   }
 }
