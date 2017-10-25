@@ -4,7 +4,7 @@ var roleUpgrader = {
     run: function(creep) {
         //go get more energy
 	    if(creep.carry.energy < creep.carryCapacity && creep.memory.upgrading == false) {
-            var sources = creep.room.findClosestByPath(FIND_STRUCTURES, {
+            var sources = creep.pos.findClosestByPath(FIND_STRUCTURES, {
               filter: (structure) => {
                 return structure.structureType == STRUCTURE_CONTAINER
               }
