@@ -27,7 +27,7 @@ var roleMiner = {
         }
       }
       creep.memory.container = container;
-      creep.memory.sourcePos = container.pos.findClosestByPath(FIND_SOURCES);
+      creep.memory.sourcePos = container.pos.findClosestByRange(FIND_SOURCES);
     }
 
     // Move to and mine empty spot
