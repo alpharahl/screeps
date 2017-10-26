@@ -10,10 +10,22 @@ var roleHauler = {
       } else { //only repair if no enemies
         var target = pos.findClosestByRange(FIND_STRUCTURES, {
           filter: (structure) => {
-            return structure.hits < structure.hitsMax
+            return structure.hits < structure.hitsMax &&
+                   structure.structureType != STRUCTURE_WALL
           }
         })
-        tower.repair(target);
+        if (target) {
+          tower.repair(target);
+        } else {
+          //nothing else to repair, lets fix a wall
+          var target = pos.findClosestByRange(FIND_STRUCTURES, {
+            return structure.structureType == STRUCTURE_WALL &&
+                   structure.hits < 6000
+          })
+          if (target) {
+            tower.repair(target);
+          }
+        }
       }
     }
 	}
