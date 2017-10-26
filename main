@@ -22,7 +22,7 @@ module.exports.loop = function (){
   towerFunc.run(tower);
 
   maintainCreeps.run('builder', 2);
-  maintainCreeps.run('upgrader', 2);
+  maintainCreeps.run('upgrader', 4);
   // maintainCreeps.run('stationaryMiner', 1);
   maintainCreeps.run('hauler', 2);
   maintainCreeps.run('miner', 1);
