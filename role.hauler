@@ -25,6 +25,15 @@ var roleHauler = {
             }
           })[0];
         }
+
+        if (!storage){
+          storage = creep.room.lookForAt(LOOK_STRUCTURES, creep.room.getPositionAt(25,30));
+          if (storage.store[RESOURCE_ENERGY] < storage.storeCapcity){
+            // this will work
+          } else { //check other storage
+            storage = creep.room.lookForAt(LOOK_STRUCTURES, creep.room.getPositionAt(25, 31));
+          }
+        }
         if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
           creep.moveTo(storage);
         }
