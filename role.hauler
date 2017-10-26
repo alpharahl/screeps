@@ -34,7 +34,7 @@ var roleHauler = {
           var source = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
               return structure.structureType == STRUCTURE_CONTAINER &&
-                     structure.store[RESOURCE_ENERGY] > 0
+                     structure.store[RESOURCE_ENERGY] > 150
             }
           }).id
           creep.memory.source = source
