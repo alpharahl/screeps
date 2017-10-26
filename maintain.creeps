@@ -15,6 +15,7 @@ var maintainCreeps = {
               for (i = 0; i < availableEnergy; i + 100){
                 worker.concat([CARRY, MOVE]);
               }
+              console.log(worker)
               if (worker.length >= 4){
                 Game.spawns['Spawn1'].spawnCreep(worker, newName, {memory: memHash});
               }
