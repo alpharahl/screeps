@@ -2,7 +2,7 @@ var maintainCreeps = {
     run: function(creepType, count){
         var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == creepType);
         if (creeps.length < count){
-            var
+            var worker = [];
             var newName = creepType + Game.time;
             var memHash = {role: creepType}
             if (creepType == 'upgrader'){
@@ -12,7 +12,7 @@ var maintainCreeps = {
             if (creepType == 'hauler'){
               memHash['hauling'] = true;
               let worker = [];
-              for (i = 0; i < availableEnergy; i + 100){
+              for (i = 0; i <= availableEnergy; i + 100){
                 worker.concat([CARRY, MOVE]);
               }
               console.log(worker)
@@ -31,10 +31,9 @@ var maintainCreeps = {
             } else if (creepType == 'roadMaintainer'){
               Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], newName, {memory: memHash});
             } else {
-              if (Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {memory: memHash}) == ERR_NOT_ENOUGH_ENERGY){
-                //Waiting
-              }
+              worker = [WORK, WORK, CARRY, MOVE]
             }
+            Game.spawns['Spawn1'].spawnCreep(worker, newName, {memory: memHash})
         }
     }
 }
