@@ -7,7 +7,7 @@ var maintainCreeps = {
             var memHash = {role: creepType}
             if (creepType == 'upgrader'){
                 memHash['upgrading'] = false;
-            } else if { creepType == 'hauler'){
+            } else if ( creepType == 'hauler'){
               worker = [CARRY, CARRY, CARRY, MOVE, MOVE, MOVE]
             } else if (creepType == 'builder') {
               Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], newName, {memory: memHash});
