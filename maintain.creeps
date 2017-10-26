@@ -7,18 +7,8 @@ var maintainCreeps = {
             var memHash = {role: creepType}
             if (creepType == 'upgrader'){
                 memHash['upgrading'] = false;
-            }
-            var availableEnergy = Game.spawns['Spawn1'].room.energyAvailable
-            if (creepType == 'hauler'){
-              memHash['hauling'] = true;
-              let worker = [];
-              for (i = 0; i <= availableEnergy; i + 100){
-                worker.concat([CARRY, MOVE]);
-              }
-              console.log(worker)
-              if (worker.length >= 4){
-                Game.spawns['Spawn1'].spawnCreep(worker, newName, {memory: memHash});
-              }
+            } else if { creepType == 'hauler'){
+              worker = [CARRY, CARRY, CARRY, MOVE, MOVE, MOVE]
             } else if (creepType == 'builder') {
               Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], newName, {memory: memHash});
             } else if (creepType == 'stationaryMiner'){
