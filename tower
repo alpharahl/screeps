@@ -13,6 +13,7 @@ var roleHauler = {
             return structure.hits < structure.hitsMax
           }
         })
+        tower.repair(target);
       }
     }
 	}
