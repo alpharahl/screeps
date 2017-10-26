@@ -19,8 +19,10 @@ var roleHauler = {
         } else {
           //nothing else to repair, lets fix a wall
           var target = pos.findClosestByRange(FIND_STRUCTURES, {
-            return structure.structureType == STRUCTURE_WALL &&
-                   structure.hits < 6000
+            filter: (structure) => {
+              return structure.structureType == STRUCTURE_WALL &&
+                     structure.hits < 6000
+             }
           })
           if (target) {
             tower.repair(target);
