@@ -28,7 +28,7 @@ var roleHauler = {
 
         if (!storage){
           storage = creep.room.lookForAt(LOOK_STRUCTURES, creep.room.getPositionAt(25,30));
-          if (storage.store[RESOURCE_ENERGY] < storage.storeCapcity){
+          if (storage && storage.store[RESOURCE_ENERGY] < storage.storeCapcity){
             // this will work
           } else { //check other storage
             storage = creep.room.lookForAt(LOOK_STRUCTURES, creep.room.getPositionAt(25, 31));
