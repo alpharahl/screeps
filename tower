@@ -1,0 +1,21 @@
+var roleHauler = {
+
+  run: function(tower) {
+    // params: tower
+    if (tower) {
+      var pos = tower.pos;
+      var enemy = pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+      if (enemy){
+        tower.attack(enemy);
+      } else { //only repair if no enemies
+        var target = pos.findClosestByRange(FIND_STRUCTURES, {
+          filter: (structure) => {
+            return structure.hits < structure.hitsMax
+          }
+        })
+      }
+    }
+	}
+};
+
+module.exports = roleHauler;
