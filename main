@@ -16,7 +16,7 @@ module.exports.loop = function (){
   maintainCreeps.run('builder', 2);
   maintainCreeps.run('upgrader', 5);
   // maintainCreeps.run('stationaryMiner', 1);
-  maintainCreeps.run('hauler', 1);
+  maintainCreeps.run('hauler', 2);
   maintainCreeps.run('miner', 1);
   maintainCreeps.run('stationaryMiner2',2);
   maintainCreeps.run('roadMaintainer', 1);
