@@ -27,7 +27,7 @@ module.exports.loop = function (){
   maintainCreeps.run('hauler', 2);
   maintainCreeps.run('miner', 1);
   maintainCreeps.run('stationaryMiner2',2);
-  maintainCreeps.run('roadMaintainer', 1);
+  // maintainCreeps.run('roadMaintainer', 1);
 
   for (var name in Game.creeps){
     var creep =Game.creeps[name];
