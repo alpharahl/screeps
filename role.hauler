@@ -29,14 +29,16 @@ var roleHauler = {
         }
 	    }
 	    else {
-        var source = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-          filter: (structure) => {
-            return structure.structureType == STRUCTURE_CONTAINER &&
-                   structure.store[RESOURCE_ENERGY] > 0
-          }
-        })
-        if(creep.withdraw(source, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
+        if (!creep.memory.source){
+          var source = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: (structure) => {
+              return structure.structureType == STRUCTURE_CONTAINER &&
+                     structure.store[RESOURCE_ENERGY] > 0
+            }
+          })
+        }
+        if(creep.withdraw(creep.memory.source, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            creep.moveTo(creep.memory.source, {visualizePathStyle: {stroke: '#ffaa00'}});
         }
 	    }
 	}
